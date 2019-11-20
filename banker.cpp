@@ -23,26 +23,25 @@ int main(){
     int f[np], ans[np], ind = 0; 
     for (k = 0; k < np; k++) { 
         f[k] = 0; 
-    } 
+    }
     int need[np][nr]; 
     for (i = 0; i < np; i++) { 
         for (j = 0; j < nr; j++) 
             need[i][j] = max[i][j] - alloc[i][j]; 
-    } 
+    }
     int y = 0; 
     for (k = 0; k < 5; k++) { 
         for (i = 0; i < np; i++) { 
-            if (f[i] == 0) { 
-  
-                int flag = 0; 
+            if (f[i] == 0) {   
+                int flag = 0;
                 for (j = 0; j < nr; j++) { 
-                    if (need[i][j] > res[j]){ 
-                        flag = 1; 
-                         break; 
+                    if (need[i][j] > res[j]){
+                        flag = 1;
+                        break;
                     } 
                 } 
   
-                if (flag == 0) { 
+                if (flag == 0) {
                     ans[ind++] = i; 
                     for (y = 0; y < nr; y++) 
                         res[y] += alloc[i][y]; 

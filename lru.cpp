@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 int main(){
-	int n,nf,i,j,fc=0,f1=0,f2=0;
+	int n,nf,i,j,flt_cnt=0,f1=0,f2=0,cnt=0;
 	printf("Enter No Of Pages : ");
 	scanf("%d",&n);
 	int ref[n];
@@ -27,15 +27,17 @@ int main(){
 				if(fr[j]==-1){
 					fr[j]=ref[i];
 					f2=1;
+					flt_cnt++;
 					break;
 				}
 			}
 		}
 		if(f2==0){
 			for(j=0;j<nf;j++){
-				if(fr[j]!=ref[i]){
-					fr[j]=ref[i];
-					fc++;
+				if(ref[i]!=fr[j]){
+					fr[j+cnt%nf]=ref[i];
+					flt_cnt++;
+					cnt++;
 					break;
 				}
 			}
@@ -43,7 +45,6 @@ int main(){
 		printf("\n\nFrames Status: ");
 		for(j=0;j<nf;j++)
 			printf("%d\t", j[fr]);
-
 	}
-	printf("\n\nNo of page faults: %d", fc);
+	printf("\n\nNo of page faults: %d", flt_cnt);
 }
