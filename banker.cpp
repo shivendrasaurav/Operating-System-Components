@@ -8,7 +8,7 @@ int main(){
 	printf("\nEnter Number Of Resources	: ");
 	scanf("%d",&nr);
 	int res[nr], alloc[np][nr], max[np][nr];
-	printf("\nEnter Total Resources Matrix: \n");
+	printf("\nEnter Available Resources Matrix: \n");
 	for(i=0; i<nr; i++)
 		scanf("%d", &res[i]);
 	printf("\n\nEnter Allocation Matrix: \n");
