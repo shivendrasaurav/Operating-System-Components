@@ -22,30 +22,30 @@ int main(){
 	
     int f[np], ans[np], ind = 0; 
     for (k = 0; k < np; k++) { 
-        f[k] = 0; 
+        f[k] = 0; 						//set all the flags to zero
     }
     int need[np][nr]; 
     for (i = 0; i < np; i++) { 
         for (j = 0; j < nr; j++) 
-            need[i][j] = max[i][j] - alloc[i][j]; 
+            need[i][j] = max[i][j] - alloc[i][j]; 		//Calculate need matrix
     }
-    int y = 0; 
-    for (k = 0; k < 5; k++) { 
+    int y = 0;
+    for (k = 0; k < np; k++) { 
         for (i = 0; i < np; i++) { 
             if (f[i] == 0) {   
                 int flag = 0;
-                for (j = 0; j < nr; j++) { 
+                for (j = 0; j < nr; j++) { 			//If need is greater than available, set flag=1 and break
                     if (need[i][j] > res[j]){
                         flag = 1;
                         break;
                     } 
                 } 
   
-                if (flag == 0) {
+                if (flag == 0) {				//If flag remains 0 it means need is less than available, and the process will run
                     ans[ind++] = i; 
                     for (y = 0; y < nr; y++) 
-                        res[y] += alloc[i][y]; 
-                    f[i] = 1; 
+                        res[y] += alloc[i][y]; 			//add allocated matrix to resource matrix and set flag[i]=1
+                    f[i] = 1;
                 } 
             } 
         } 
