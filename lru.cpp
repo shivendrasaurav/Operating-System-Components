@@ -15,16 +15,16 @@ int main(){
 	for(i=0;i<nf;i++)
 		fr[i]=-1;
 	for(i=0;i<n;i++){
-		f1=f2=0;
+		f1=f2=0;					//set flag 1 and 2 as zero
 		for(j=0;j<nf;j++){
-			if(fr[j]==ref[i]){
+			if(fr[j]==ref[i]){			//checks if frame already exists, if yes, set flags as 1 and break
 				f1=f2=1;
 				break;
 			}
 		}
-		if(f1==0){
+		if(f1==0){					//if frames are empty or not
 			for(j=0;j<nf;j++){
-				if(fr[j]==-1){
+				if(fr[j]==-1){				
 					fr[j]=ref[i];
 					f2=1;
 					flt_cnt++;
@@ -32,7 +32,7 @@ int main(){
 				}
 			}
 		}
-		if(f2==0){
+		if(f2==0){					//search for frame, if not found replace page
 			for(j=0;j<nf;j++){
 				if(ref[i]!=fr[j]){
 					fr[j+cnt%nf]=ref[i];
