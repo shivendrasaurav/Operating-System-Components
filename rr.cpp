@@ -46,7 +46,7 @@ int main(){
 	float avgwt, avgtat, totwt=0, totat=0;
 	for(i=0;i<n;i++){
 		totwt = totwt + wt[i];
-		totat = totwt + tat[i];
+		totat = totat + tat[i];
 	}
-	printf("\n\nAverage Waiting Time: %f \n\nAverage Turnaround Time: %f", totwt/n, totat/n);
+	printf("\nTotal Waiting Time : %f \n\nAverage Waiting Time: %f \n\nTotal Turnaround Time : %f \n\nAverage Turnaround Time: %f",totwt, totwt/n, totat, totat/n);
 }

@@ -6,11 +6,11 @@ int main(){
 	scanf("%d",&n);
 	printf("\nEnter Arrival Time In Seconds : ");
 	scanf("%d", &at);
-	int dur[n], bt[n], wt[n], tat[n];
+	int pos[n], bt[n], wt[n], tat[n];
 	printf("\nEnter Burst Time Array For Processes: \n");
 	for(i=0;i<n;i++){
 		scanf("%d", &bt[i]);
-		dur[i]=i;
+		pos[i]=i;
 	}
 	for(i=0;i<n;i++){
 		for(j=i;j<n;j++){
@@ -18,9 +18,9 @@ int main(){
 				t1=bt[i];
 				bt[i]=bt[j];
 				bt[j]=t1;
-				t2=dur[i];
-				dur[i]=dur[j];
-				dur[j]=t1;
+				t2=pos[i];
+				pos[i]=pos[j];
+				pos[j]=t1;
 			}
 		}
 	}
@@ -36,7 +36,7 @@ int main(){
 	float avgwt, avgtat, totwt=0, totat=0;
 	for(i=0;i<n;i++){
 		totwt = totwt + wt[i];
-		totat = totwt + tat[i];
+		totat = totat + tat[i];
 	}
-	printf("\nAverage Waiting Time: %f \n\nAverage Turnaround Time: %f", totwt/n, totat/n);
+	printf("\nTotal Waiting Time : %f \n\nAverage Waiting Time: %f \n\nTotal Turnaround Time : %f \n\nAverage Turnaround Time: %f",totwt, totwt/n, totat, totat/n);
 }
